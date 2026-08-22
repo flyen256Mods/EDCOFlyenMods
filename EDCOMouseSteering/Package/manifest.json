@@ -1,0 +1,7 @@
+{
+  "name": "EDCOMouseSteering",
+  "version_number": "1.0.1",
+  "website_url": "https://github.com/flyen256Mods/EDCO-MouseSteering",
+  "description": "Mod provides switchable mouse steering to control steering angle with mouse input.",
+  "dependencies": ["BepInEx-BepInExPack-5.4.2304"]
+}
