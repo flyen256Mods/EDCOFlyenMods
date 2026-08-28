@@ -48,6 +48,8 @@
     </ItemGroup>
     
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Copy SourceFiles="$(ProjectDir)bin\Debug\net472\EDCOMouseSteering.dll" DestinationFolder="$(EasyDeliveryPath)\BepInEx\plugins" ContinueOnError="false" />
+        <Copy SourceFiles="$(ProjectDir)bin\Release\net472\EDCOMouseSteering.dll" DestinationFolder="$(EasyDeliveryPath)\BepInEx\plugins" ContinueOnError="false" />
+        <Copy SourceFiles="$(ProjectDir)bin\Release\net472\EDCOMouseSteering.dll" DestinationFolder="$(ProjectDir)Package\" ContinueOnError="false" />
+        <Copy SourceFiles="$(ProjectDir)README.md" DestinationFolder="$(ProjectDir)Package\" ContinueOnError="false" />
     </Target>
 </Project>

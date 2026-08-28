@@ -4,7 +4,7 @@ using UnityEngine;
 namespace EDCOMouseSteering.Patches;
 
 [HarmonyPatch(typeof(sInputManager), "GetInput")]
-public static class InputManager_GetInput_Postfix
+public static class InputManagerGetInputPostfix
 {
     public static void Postfix(sInputManager __instance)
     {

@@ -4,11 +4,12 @@ using UnityEngine;
 namespace EDCOMouseSteering.Patches;
 
 [HarmonyPatch(typeof(sCameraRotate), "Update")]
-public class CameraRotate_Update_Prefix
+public class CameraRotateUpdatePrefix
 {
     public static bool Prefix(sCameraRotate __instance, ref sCarController ___car, ref Vector3 ___rotation, ref Vector3 ___targetRotation)
     {
-        if (!EdcoMouseSteering.Instance || !EdcoMouseSteering.Instance.MouseSteeringEnabled) return true;
+        var steeringWheel = EdcoMouseSteering.Instance;
+        if (!steeringWheel || !steeringWheel.MouseSteeringEnabled) return true;
         if (PauseSystem.paused)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -23,7 +24,7 @@ public class CameraRotate_Update_Prefix
 
         ___targetRotation = Vector3.Lerp(___targetRotation, Vector3.zero, Time.deltaTime * num5);
         ___rotation = Vector3.Lerp(___rotation, ___targetRotation, Time.deltaTime * 4f);
-
+        
         __instance.target.localEulerAngles = Vector3.right * ___rotation.y;
         __instance.pivot.localEulerAngles = Vector3.up * ___rotation.x;
 

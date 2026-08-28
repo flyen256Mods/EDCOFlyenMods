@@ -1,7 +1,9 @@
 ﻿using BepInEx;
+using BepInEx.Logging;
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Logger = BepInEx.Logging.Logger;
 
 namespace EDCOMouseSteering;
 
@@ -9,6 +11,7 @@ namespace EDCOMouseSteering;
 public class EdcoMouseSteering : BaseUnityPlugin
 {
     public static EdcoMouseSteering Instance { get; private set; }
+    public ILogSource PluginLogger => Logger;
 
     public bool MouseSteeringEnabled { get; private set; }
     public float MouseSteeringValue { get; private set; }
